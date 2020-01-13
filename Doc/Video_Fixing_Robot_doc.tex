@@ -1,0 +1,20 @@
+\documentclass{article}
+\begin{document}
+\title{Repairing Vido With FFMEPG By Extracting Every Good Frame And Re-Rendering The Video}
+\author{Christopher Andres \\IT Anylist\\KSDK, St. Louis}
+\maketitle
+
+If you are given a video file that is courpt, it may be possible to excract the frames from the video, and render a file that can be played. The down side is that you will not have audio, or will have to resync the audio track later.
+
+I used FFMPEG on Ubuntu for Windows 10, though you should be able to use FFMPEG for Windows.
+
+\begin{verbatim}
+ffmpeg -i 'BOMBER OBRIEN SURVEILLANCE.mp4' -r 1/1 $filename%03d.bmp
+\end{verbatim}
+
+\begin{verbatim}
+ffmpeg -r 5 -i %03d.bmp -c:v libx264 -vf fps=25 -pix_fmt yuv420p out5.mp4
+\end{verbatim}
+
+
+\end{document}
