@@ -1,6 +1,6 @@
 #Video Fixing Robot
 #By Chris Andres
-#Requires Python3, ffmpeg and MediaInfo
+#Requires Ubuntu, Python3, ffmpeg and MediaInfo
 
 #Importing required libarys
 import os
@@ -60,7 +60,7 @@ fpsVarCmd = str(fpsVarCmd2)
 
 
 #Script used to rip frames from the video, and re render it
-ffmpegInput = "ffmpeg -i " + str(inputFile) + " -r 1/1 " + "$filename%03d.bmp"
+ffmpegInput = "ffmpeg -i " + str(inputFile) + " -r 1/1 " + "$filename%03d.tiff"
 
 #running the ffmpeg script
 os.system(ffmpegInput)
@@ -71,7 +71,7 @@ os.system(ffmpegInput)
 print("done")
 
 #ffmpeg rendering script
-ffmpegOutput = "ffmpeg -r 4 -i %03d.bmp -c:v libx264 -vf fps=30 -pix_fmt yuv420p " + outputFile
+ffmpegOutput = "ffmpeg -r 4 -i %03d.tiff -c:v libx264 -vf fps=30 -pix_fmt yuv420p " + outputFile
 #print(ffmpegOutput)
 
 #running the output script
