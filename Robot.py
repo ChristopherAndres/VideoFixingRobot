@@ -27,7 +27,7 @@ print("Working on: " +inputFile)
 #Creating A working folder
 workingFolder = inputFile + "_Working"
 os.mkdir(workingFolder)
-subprocess.run(["cp", inputFile, workingFolder])
+shutil.copy(inputFile, workingFolder)
 
 #Moving to the working folder
 os.chdir(workingFolder)
