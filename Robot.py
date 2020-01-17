@@ -32,13 +32,6 @@ shutil.copy(inputFile, workingFolder)
 #Moving to the working folder
 os.chdir(workingFolder)
 
-#Getting Varibles
-#This may not be needed, yet, but will be usefull in the future.
-widthComand ="mediainfo --inform=" + "'" + "Video" +";" + "%Width%" + "'" + " " + inputFile
-heightCommand ="mediainfo --inform=" + "'" + "Video" +";" + "%Height%" + "'" + " " + inputFile
-fpsVarCmd2 = "mediainfo --inform=" + "'" + "Video" + ";" + "%FrameRate%" + "'" + " " + inputFile
-fpsVarCmd = str(fpsVarCmd2)
-
 #Script used to rip frames from the video, and re render it
 ffmpegInput = "ffmpeg -i " + str(inputFile) + " -r 1/1 " + "$filename%03d.tiff"
 
