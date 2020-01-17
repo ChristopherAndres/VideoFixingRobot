@@ -1,7 +1,7 @@
 #Video Fixing Robot
 #By Chris Andres
 #Requires Ubuntu, Python3, ffmpeg and MediaInfo
-
+#
 #Importing required libarys
 import os
 import argparse
@@ -78,7 +78,7 @@ ffmpegOutput = "ffmpeg -r 4 -i %03d.tiff -c:v libx264 -vf fps=30 -pix_fmt yuv420
 os.system(ffmpegOutput)
 
 #copying the output file back to the starting dir, and cleaning up the workspace
-subprocess.run(["cp", outputFile, startingFolder])
+shutil.move(outputFile, startingFolder)
 os.chdir(startingFolder)
 shutil.rmtree(workingFolder)
 
